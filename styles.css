@@ -280,6 +280,31 @@ h3 {
     color: var(--white);
 }
 
+.contribution-callout {
+    max-width: 720px;
+    margin: 2.25rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(233, 223, 202, 0.3);
+}
+
+.contribution-callout p {
+    margin: 0 auto 1rem;
+    color: var(--cream-100);
+    font-size: 1rem;
+}
+
+.contribution-button {
+    min-height: 46px;
+    border: 1px solid #dcc587;
+    color: var(--white);
+    background: transparent;
+}
+
+.contribution-button:hover {
+    color: var(--navy-900);
+    background: #dcc587;
+}
+
 .welcome-note {
     color: var(--navy-900);
     background: var(--green-100);
@@ -806,6 +831,10 @@ textarea[aria-invalid="true"],
     }
 
     .hero-actions .button {
+        width: 100%;
+    }
+
+    .contribution-button {
         width: 100%;
     }
 
