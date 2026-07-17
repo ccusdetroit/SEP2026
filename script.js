@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const sundayCheckbox = document.getElementById("Attendance_Sunday");
     const attendanceGroup = document.getElementById("attendance-group");
     const attendanceError = document.getElementById("attendance-error");
+    const lodgingGroup = document.getElementById("lodging-group");
+    const lodgingError = document.getElementById("lodging-error");
     const transportationGroup = document.getElementById("transportation-group");
     const transportationError = document.getElementById("transportation-error");
     const fields = [
@@ -76,6 +78,14 @@ document.addEventListener("DOMContentLoaded", () => {
             firstInvalidField = saturdayCheckbox;
         }
 
+        const lodging = form.querySelector('input[name="Lodging"]:checked');
+        lodgingGroup.setAttribute("aria-invalid", lodging ? "false" : "true");
+        lodgingError.textContent = lodging ? "" : "Please select Yes or No.";
+
+        if (!lodging && !firstInvalidField) {
+            firstInvalidField = document.getElementById("lodging-no");
+        }
+
         const transportation = form.querySelector('input[name="Transportation"]:checked');
         transportationGroup.setAttribute("aria-invalid", transportation ? "false" : "true");
         transportationError.textContent = transportation ? "" : "Please select Yes or No.";
@@ -114,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function buildPayload() {
+        const lodging = form.querySelector('input[name="Lodging"]:checked');
         const transportation = form.querySelector('input[name="Transportation"]:checked');
         const payload = new URLSearchParams();
 
@@ -127,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         payload.set("Service_Seeking_Gifts", sundayCheckbox.checked ? "Yes" : "No");
         payload.set("Service_Youth_Meeting", sundayCheckbox.checked ? "Yes" : "No");
 
+        payload.set("Lodging", lodging.value);
         payload.set("Transportation", transportation.value);
         payload.set("Comments", document.getElementById("Comments").value.trim());
         payload.set("Timestamp", new Date().toISOString());
@@ -148,6 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 attendanceGroup.setAttribute("aria-invalid", "false");
                 attendanceError.textContent = "";
             }
+        });
+    });
+
+    form.querySelectorAll('input[name="Lodging"]').forEach((radio) => {
+        radio.addEventListener("change", () => {
+            lodgingGroup.setAttribute("aria-invalid", "false");
+            lodgingError.textContent = "";
         });
     });
 
@@ -182,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 form.reset();
                 fields.forEach((field) => setFieldError(field, ""));
                 attendanceGroup.setAttribute("aria-invalid", "false");
+                lodgingGroup.setAttribute("aria-invalid", "false");
                 transportationGroup.setAttribute("aria-invalid", "false");
                 showMessage("success", "Thank you. Your RSVP has been submitted successfully.", true);
                 return;
