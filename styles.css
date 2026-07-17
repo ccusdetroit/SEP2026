@@ -293,14 +293,18 @@ h3 {
     font-size: 1rem;
 }
 
-.contribution-button {
+.hero .contribution-button,
+.hero .contribution-button:visited {
     min-height: 46px;
-    border: 1px solid #dcc587;
+    border: 2px solid #dcc587;
     color: var(--white);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.08);
+    line-height: 1.25;
+    text-align: center;
 }
 
-.contribution-button:hover {
+.hero .contribution-button:hover,
+.hero .contribution-button:focus-visible {
     color: var(--navy-900);
     background: #dcc587;
 }
@@ -834,8 +838,12 @@ textarea[aria-invalid="true"],
         width: 100%;
     }
 
-    .contribution-button {
-        width: 100%;
+    .hero .contribution-button {
+        width: min(100%, 22rem);
+        min-height: 52px;
+        margin-inline: auto;
+        padding: 0.8rem 1.25rem;
+        white-space: normal;
     }
 
     .event-card {
