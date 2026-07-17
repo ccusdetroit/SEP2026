@@ -681,6 +681,17 @@ textarea[aria-invalid="true"],
     color: var(--muted);
 }
 
+.contact-card .contact-topics {
+    margin: 0.15rem 0 1rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid var(--cream-200);
+    color: var(--ink);
+}
+
+.contact-topics strong {
+    color: var(--navy-900);
+}
+
 .contact-card a {
     display: block;
     overflow-wrap: anywhere;
