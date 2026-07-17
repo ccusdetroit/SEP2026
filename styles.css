@@ -838,12 +838,28 @@ textarea[aria-invalid="true"],
         width: 100%;
     }
 
-    .hero .contribution-button {
+    .hero .contribution-callout .contribution-button,
+    .hero .contribution-callout .contribution-button:visited,
+    .hero .contribution-callout .contribution-button:hover,
+    .hero .contribution-callout .contribution-button:focus-visible {
+        display: flex;
         width: min(100%, 22rem);
         min-height: 52px;
         margin-inline: auto;
         padding: 0.8rem 1.25rem;
+        border: 2px solid #f0d99b;
+        border-radius: 8px;
+        color: var(--navy-900);
+        background-color: #dcc587;
+        box-shadow: 0 4px 0 #9f8143;
+        font-weight: 700;
+        text-decoration: none;
         white-space: normal;
+    }
+
+    .hero .contribution-callout .contribution-button:active {
+        box-shadow: none;
+        transform: translateY(2px);
     }
 
     .event-card {
