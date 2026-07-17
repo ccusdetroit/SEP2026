@@ -376,6 +376,16 @@ h3 {
     box-shadow: var(--shadow);
 }
 
+.invitation-sharing-prompt {
+    margin: 0;
+    padding: 0.35rem 0.35rem 0.9rem;
+    color: var(--navy-900);
+    font-family: var(--font-heading);
+    font-size: 1.08rem;
+    font-weight: 600;
+    text-align: center;
+}
+
 .invitation-figure img {
     width: 100%;
     border-radius: 7px;
